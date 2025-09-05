@@ -22,7 +22,7 @@ This way there will be a common abstraction library between different programmin
 Installation can be done with composer:
 
 ``` bash
-$ composer require influxdb/influxdb-php
+$ composer require zorac/influxdb-php
 ```
 
 ### Getting started

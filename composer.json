@@ -1,5 +1,5 @@
 {
-    "name": "influxdb/influxdb-php",
+    "name": "zorac/influxdb-php",
     "description": "InfluxDB client library for PHP",
     "license": "MIT",
     "keywords": [
@@ -12,6 +12,10 @@
         "influxdb library"
     ],
     "authors": [
+        {
+            "name": "Mark Rigby-Jones",
+            "email": "mark@rigby-jones.net"
+        },
         {
             "name": "Stephen Hoogendijk",
             "email": "stephen@tca0.nl"
