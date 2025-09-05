@@ -1,21 +1,18 @@
-The v1 client libraries for InfluxDB were typically developed and maintained by
-community members. They have all now been succeeded by v2 client libraries.
-They are being archived it in favor of the v2 client library. See
-https://github.com/influxdata/influxdb-php/issues/171.
-
-If there are still users of this v1 client library, and they or somebody else
-are willing to keep them updated with security fixes at a minimum please reach
-out on the [Community Forums](https://community.influxdata.com/) or
-[InfluxData Slack](https://influxdata.com/slack).
-
 # influxdb-php
 ## InfluxDB client library for PHP
 
 #### Note: This library is for use with InfluxDB 1.x. For connecting to InfluxDB 2.x instances, please use the [influxdb-client-php](https://github.com/influxdata/influxdb-client-php) client.
 
+This library has been archived by InfluxData as per
+https://github.com/influxdata/influxdb-php/issues/171.
+I'm maintaining this fork solely for fixes/updates needed by projects I work on.
+
 ### Overview
 
-A easy to use library for using InfluxDB with PHP. Maintained by [@thecodeassassin](https://github.com/thecodeassassin), [@gianarb](https://github.com/gianarb).
+A easy to use library for using InfluxDB with PHP.
+This fork maintained by [@zorac](https://github.com/zorac).
+Previously maintained by [@thecodeassassin](https://github.com/thecodeassassin),
+[@gianarb](https://github.com/gianarb).
 
 The influxdb-php library was created to have php port of the python influxdb client.
 This way there will be a common abstraction library between different programming languages.
@@ -27,11 +24,6 @@ Installation can be done with composer:
 ``` bash
 $ composer require influxdb/influxdb-php
 ```
-
-### NOTE for PHP 5.3 and PHP 5.4 users
-
-If you use either PHP 5.3 and PHP 5.4, the 0.1.x release is still supported (bug fixes and new release fixes).
-The 0.1.x branch will work on PHP 5.3 and PHP 5.4 but doesn't contain all the features that the 1.0.0 release has such as UDP support.
 
 ### Getting started
 
@@ -55,7 +47,7 @@ $client = $database->getClient();
 
 **Important:** don't forget to `urlencode()` the password (and username for that matter) when using a DSN,
 especially if it contains non-alphanumeric characters. Not doing so might cause exceptions to be thrown.
-  
+
 ### Reading data
 
 To fetch records from InfluxDB you can do a query directly on a database:
@@ -347,6 +339,12 @@ $client->admin->revoke(\InfluxDB\Client\Admin::PRIVILEGE_ALL, 'admin_user');
 
 ## Changelog
 
+#### 1.16.0
+- Removed support for PHP < 8.1, Guzzle < 7
+- Fixed compatibility issues for PHP 8.4
+- Removed deprecated `createIfNotExists` arg to `Database::create`
+- Fixed an issue with backslahses in point values
+
 #### 1.15.0
 - Added cURL driver support #122 (thanks @aldas)
 - Improved query error message #129 (thanks @andreasanta)
@@ -380,10 +378,10 @@ $client->admin->revoke(\InfluxDB\Client\Admin::PRIVILEGE_ALL, 'admin_user');
 * Fixed tag with Boolean/Null value trigger parse error
 
 #### 1.4.1
-* Fixed bug: Escape field values as per line protocol. 
+* Fixed bug: Escape field values as per line protocol.
 
 #### 1.4.0
-* Updating Influx Database with support for writing direct payloads, thanks @virgofx 
+* Updating Influx Database with support for writing direct payloads, thanks @virgofx
 
 #### 1.3.1
 * Added ability to write data to a specific retention policy, thanks @virgofx !
