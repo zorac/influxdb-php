@@ -82,15 +82,11 @@ class Database
      * Create this database
      *
      * @param  RetentionPolicy $retentionPolicy
-     * @param  bool            $createIfNotExists Deprecated parameter - to be removed
      * @return ResultSet
      * @throws DatabaseException
      */
-    public function create(RetentionPolicy $retentionPolicy = null, $createIfNotExists = false)
+    public function create(RetentionPolicy $retentionPolicy = null)
     {
-        if ($createIfNotExists) {
-            trigger_error('The $createIfNotExists parameter to Database::create is deprecated', E_USER_DEPRECATED);
-        }
         try {
             $query = sprintf('CREATE DATABASE "%s"', $this->name);
 

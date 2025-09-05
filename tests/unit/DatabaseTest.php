@@ -74,15 +74,6 @@ class DatabaseTest extends AbstractTest
         new Database(null, $this->mockClient);
     }
 
-    /**
-     * @group legacy
-     */
-    public function testIfNotExistsDeprecation()
-    {
-        $this->expectDeprecation();
-        $this->database->create(null, true);
-    }
-
     public function testCreate()
     {
         // test create with retention policy
