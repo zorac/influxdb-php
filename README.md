@@ -10,9 +10,6 @@ out on the [Community Forums](https://community.influxdata.com/) or
 
 # influxdb-php
 ## InfluxDB client library for PHP
-[![Build Status](https://travis-ci.org/influxdata/influxdb-php.svg?branch=master)](https://travis-ci.org/influxdata/influxdb-php)
-[![Code Climate](https://codeclimate.com/github/influxdata/influxdb-php/badges/gpa.svg)](https://codeclimate.com/github/influxdata/influxdb-php)
-[![Test Coverage](https://codeclimate.com/github/influxdata/influxdb-php/badges/coverage.svg)](https://codeclimate.com/github/influxdata/influxdb-php/coverage)
 
 #### Note: This library is for use with InfluxDB 1.x. For connecting to InfluxDB 2.x instances, please use the [influxdb-client-php](https://github.com/influxdata/influxdb-client-php) client.
 
