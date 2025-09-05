@@ -81,11 +81,11 @@ class Database
     /**
      * Create this database
      *
-     * @param  RetentionPolicy $retentionPolicy
+     * @param  RetentionPolicy|null $retentionPolicy
      * @return ResultSet
      * @throws DatabaseException
      */
-    public function create(RetentionPolicy $retentionPolicy = null)
+    public function create(?RetentionPolicy $retentionPolicy = null)
     {
         try {
             $query = sprintf('CREATE DATABASE "%s"', $this->name);

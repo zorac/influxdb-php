@@ -26,6 +26,8 @@ abstract class AbstractTest extends TestCase
     /** @var  Client|PHPUnit_Framework_MockObject_MockObject $client */
     protected $mockClient;
 
+    protected string $resultData;
+
     /**
      * @var string
      */
