@@ -12,7 +12,7 @@ use InfluxDB\ResultSet;
  *
  * @package InfluxDB\Driver
  */
-interface QueryDriverInterface
+interface QueryDriverInterface extends DriverInterface
 {
 
     /**

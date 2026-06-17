@@ -5,7 +5,7 @@ namespace InfluxDB\Driver;
 
 use InfluxDB\ResultSet;
 
-class Curl implements DriverInterface, QueryDriverInterface
+class Curl implements QueryDriverInterface
 {
     /**
      * request parameters

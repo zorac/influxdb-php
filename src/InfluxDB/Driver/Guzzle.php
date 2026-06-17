@@ -14,7 +14,7 @@ use InfluxDB\ResultSet;
  *
  * @package InfluxDB\Driver
  */
-class Guzzle implements DriverInterface, QueryDriverInterface
+class Guzzle implements QueryDriverInterface
 {
 
     /**

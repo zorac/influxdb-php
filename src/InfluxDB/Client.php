@@ -352,7 +352,7 @@ class Client
     }
 
     /**
-     * @return DriverInterface|QueryDriverInterface
+     * @return DriverInterface
      */
     public function getDriver()
     {
