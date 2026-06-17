@@ -339,6 +339,9 @@ $client->admin->revoke(\InfluxDB\Client\Admin::PRIVILEGE_ALL, 'admin_user');
 
 ## Changelog
 
+#### 1.16.1
+- Added support for token-based authentication
+
 #### 1.16.0
 - Removed support for PHP < 8.1, Guzzle < 7
 - Fixed compatibility issues for PHP 8.4
