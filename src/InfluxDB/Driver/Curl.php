@@ -183,6 +183,24 @@ class Curl implements QueryDriverInterface
             $opts[CURLOPT_USERPWD] = $username . ':' . $password;
         }
 
+        if (isset($this->parameters['headers'])) {
+            $headers = [];
+
+            foreach ($this->parameters['headers'] as $name => $values) {
+                if (is_array($values)) {
+                    foreach ($values as $value) {
+                        $headers[] = "$name: $value";
+                    }
+                } else {
+                    $headers[] = "$name: $values";
+                }
+            }
+
+            if (!empty($headers)) {
+                $opts[CURLOPT_HTTPHEADER] = $headers;
+            }
+        }
+
         return $opts;
     }
 

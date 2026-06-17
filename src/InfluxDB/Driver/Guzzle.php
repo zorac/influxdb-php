@@ -142,6 +142,10 @@ class Guzzle implements QueryDriverInterface
             $requestParameters += ['auth' => $this->parameters['auth']];
         }
 
+        if (isset($this->parameters['headers'])) {
+            $requestParameters += ['headers' => $this->parameters['headers']];
+        }
+
         return $requestParameters;
     }
 }
