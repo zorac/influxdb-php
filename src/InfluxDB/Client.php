@@ -44,6 +44,11 @@ class Client
     protected $password = '';
 
     /**
+     * @var string
+     */
+    protected $token = '';
+
+    /**
      * @var float
      */
     protected $timeout = 0;
@@ -105,6 +110,7 @@ class Client
      * @param bool   $verifySSL
      * @param float  $timeout
      * @param float  $connectTimeout
+     * @param string $token
      */
     public function __construct(
         $host,
@@ -114,12 +120,14 @@ class Client
         $ssl = false,
         $verifySSL = false,
         $timeout = 0,
-        $connectTimeout = 0
+        $connectTimeout = 0,
+        $token = ''
     ) {
         $this->host = (string) $host;
         $this->port = (int) $port;
         $this->username = (string) $username;
         $this->password = (string) $password;
+        $this->token = (string) $token;
         $this->timeout = (float) $timeout;
         $this->connectTimeout = (float) $connectTimeout;
         $this->verifySSL = (bool) $verifySSL;
@@ -181,6 +189,11 @@ class Client
         // add authentication to the driver if needed
         if (!empty($this->username) && !empty($this->password)) {
             $parameters += ['auth' => [$this->username, $this->password]];
+        }
+
+        if (!empty($this->token)) {
+            $parameters += ['headers' => []];
+            $parameters['headers'] += ['Authorization' => "Token $this->token"];
         }
 
         $driver->setParameters($parameters);
@@ -270,6 +283,7 @@ class Client
     public static function fromDSN($dsn, $timeout = 0, $verifySSL = false, $connectTimeout = 0)
     {
         $connParams = parse_url($dsn);
+        parse_str($connParams['query'], $queryParams);
 
         if ($connParams === false) {
             throw new ClientException('Unable to parse the InfluxDB DSN');
@@ -300,7 +314,8 @@ class Client
             $ssl,
             $verifySSL,
             $timeout,
-            $connectTimeout
+            $connectTimeout,
+            isset($queryParams['token']) ? $queryParams['token'] : ''
         );
 
         // set the UDP driver when the DSN specifies UDP
