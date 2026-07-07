@@ -339,6 +339,10 @@ $client->admin->revoke(\InfluxDB\Client\Admin::PRIVILEGE_ALL, 'admin_user');
 
 ## Changelog
 
+#### 1.16.2
+- Fix spurious warning
+- Start work on linter integration
+
 #### 1.16.1
 - Added support for token-based authentication
 
