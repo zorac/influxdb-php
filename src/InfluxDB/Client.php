@@ -283,7 +283,7 @@ class Client
     public static function fromDSN($dsn, $timeout = 0, $verifySSL = false, $connectTimeout = 0)
     {
         $connParams = parse_url($dsn);
-        parse_str($connParams['query'], $queryParams);
+        parse_str($connParams['query'] ?? '', $queryParams);
 
         if ($connParams === false) {
             throw new ClientException('Unable to parse the InfluxDB DSN');
