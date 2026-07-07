@@ -26,7 +26,7 @@ class Curl implements QueryDriverInterface
      */
     private $options;
 
-    /** @var array */
+    /** @var array|null */
     protected $lastRequestInfo;
 
     /**
@@ -49,9 +49,6 @@ class Curl implements QueryDriverInterface
 
         $this->dsn = $dsn;
         if (strpos($dsn, 'unix://') === 0) {
-            if (PHP_VERSION_ID < 70007) {
-                throw new Exception('Unix domain sockets are supported since PHP version PHP 7.0.7. Current version: ' . PHP_VERSION);
-            }
             $curlVersion = curl_version()['version'];
             if (version_compare($curlVersion, '7.40.0', '<')) {
                 throw new Exception('Unix domain sockets are supported since curl version 7.40.0! Current curl version: ' . $curlVersion);

@@ -59,7 +59,7 @@ class Client
     protected $connectTimeout = 0;
 
     /**
-     * @var bool
+     * @var string
      */
     protected $scheme = 'http';
 
@@ -79,7 +79,7 @@ class Client
     protected $udpPort = 4444;
 
     /**
-     * @var
+     * @var string
      */
     protected $baseURI;
 
@@ -89,7 +89,7 @@ class Client
     protected $options = [];
 
     /**
-     * @var DriverInterface
+     * @var DriverInterface|null
      */
     protected $driver;
 
@@ -97,7 +97,7 @@ class Client
     /**
      * Stores the last query that ran
      *
-     * @var null
+     * @var string|null
      */
     public static $lastQuery = null;
 

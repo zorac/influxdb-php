@@ -82,7 +82,6 @@ class Database
      * Create this database
      *
      * @param  RetentionPolicy|null $retentionPolicy
-     * @return ResultSet
      * @throws DatabaseException
      */
     public function create(?RetentionPolicy $retentionPolicy = null)

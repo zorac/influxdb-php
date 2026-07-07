@@ -6,8 +6,8 @@
 namespace InfluxDB\Driver;
 
 use GuzzleHttp\Client;
-use GuzzleHttp\Psr7\Response;
 use InfluxDB\ResultSet;
+use Psr\Http\Message\ResponseInterface;
 
 /**
  * Class Guzzle
@@ -30,7 +30,7 @@ class Guzzle implements QueryDriverInterface
     private $httpClient;
 
     /**
-     * @var Response
+     * @var ResponseInterface
      */
     private $response;
 
@@ -126,7 +126,7 @@ class Guzzle implements QueryDriverInterface
     }
 
     /**
-     * @param null $data
+     * @param mixed $data
      *
      * @return array
      */

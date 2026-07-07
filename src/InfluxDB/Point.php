@@ -27,7 +27,7 @@ class Point
     protected $fields = [];
 
     /**
-     * @var string
+     * @var string|int|null
      */
     protected $timestamp;
 
