@@ -7,3 +7,4 @@ test.php
 .project
 clover.xml
 .*.cache
+composer.lock
