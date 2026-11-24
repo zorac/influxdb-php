@@ -339,6 +339,10 @@ $client->admin->revoke(\InfluxDB\Client\Admin::PRIVILEGE_ALL, 'admin_user');
 
 ## Changelog
 
+#### 1.16.3
+- Add support for Guzzle 8.x
+- Remove deprecated `curl_close()` (it does nothing pn PHP 8.x)
+
 #### 1.16.2
 - Fix spurious warning
 - Start work on linter integration
