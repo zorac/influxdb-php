@@ -157,9 +157,6 @@ class Curl implements QueryDriverInterface
             throw new Exception('Request failed! curl_errno: ' . curl_errno($ch));
         }
 
-
-        curl_close($ch);
-
         return $result;
     }
 
